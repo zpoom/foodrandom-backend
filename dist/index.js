@@ -30,6 +30,11 @@ app.use(cors_1.default({
     preflightContinue: true,
     maxAge: 600
 }));
+app.post("/graphql", express_graphql_1.default({
+    schema: graphql_1.schema,
+    rootValue: graphql_1.resolver,
+    graphiql: true
+}));
 app.use("/graphql", express_graphql_1.default({
     schema: graphql_1.schema,
     rootValue: graphql_1.resolver,

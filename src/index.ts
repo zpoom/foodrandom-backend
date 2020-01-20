@@ -7,7 +7,6 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
 const app = express();
-
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -30,6 +29,14 @@ app.use(
     maxAge: 600
   })
 );
+app.post(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema,
+    rootValue: resolver,
+    graphiql: true
+  })
+);
 app.use(
   "/graphql",
   graphqlHTTP({
@@ -38,7 +45,6 @@ app.use(
     graphiql: true
   })
 );
-
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
