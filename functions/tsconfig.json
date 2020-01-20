@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
+    "outDir": "lib",
+    "sourceMap": true,
+    "strict": false,
+    "target": "esnext",
+    "esModuleInterop": true
+  },
+  "compileOnSave": true,
+  "include": ["src"],
+  "lib": ["esnext.asynciterable"]
+}

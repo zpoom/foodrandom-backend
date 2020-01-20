@@ -1,16 +1,16 @@
 {
-  "name": "foodrandom-backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "functions",
   "scripts": {
-    "start": "nodemon ./dist/index.js",
     "build": "tsc",
-    "production": "concurrently \"npm:build\" \"npm:start\""
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "engines": {
+    "node": "8"
+  },
   "dependencies": {
     "@types/cors": "^2.8.6",
     "@types/express-graphql": "^0.9.0",
@@ -26,8 +26,9 @@
     "mongoose": "^5.8.7"
   },
   "devDependencies": {
-    "@types/express": "^4.17.2",
-    "concurrently": "^5.0.2",
-    "nodemon": "^2.0.2"
-  }
+    "typescript": "^3.2.2",
+    "firebase-functions-test": "^0.1.6"
+  },
+  "private": true,
+  "main": "lib/functions/src/index.js"
 }
