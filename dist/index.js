@@ -23,13 +23,7 @@ mongoose_1.default
     .catch(function (err) {
     console.log("[failed] disconnected from the the database.");
 });
-app.use(cors_1.default({
-    origin: true,
-    methods: "GET, POST",
-    credentials: true,
-    preflightContinue: true,
-    maxAge: 600
-}));
+app.use(cors_1.default());
 app.post("/graphql", express_graphql_1.default({
     schema: graphql_1.schema,
     rootValue: graphql_1.resolver,

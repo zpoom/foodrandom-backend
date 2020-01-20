@@ -20,15 +20,7 @@ mongoose
   .catch(err => {
     console.log("[failed] disconnected from the the database.");
   });
-app.use(
-  cors({
-    origin: true,
-    methods: "GET, POST",
-    credentials: true,
-    preflightContinue: true,
-    maxAge: 600
-  })
-);
+app.use(cors());
 app.post(
   "/graphql",
   graphqlHTTP({

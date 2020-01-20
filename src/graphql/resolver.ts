@@ -14,7 +14,7 @@ export const resolver = {
       const restaurants = await RestaurantModel.find({
         category: { $nin: excludedCategories }
       });
-      console.log(restaurants);
+      // console.log(restaurants);
       const randomIndex: number = Math.floor(
         Math.random() * restaurants.length
       );
@@ -26,11 +26,11 @@ export const resolver = {
   },
   addRestaurant: async (restaurantInput: Restaurant) => {
     const restaurant = JSON.parse(JSON.stringify(restaurantInput));
-    console.log(restaurant.restaurant);
+    // console.log(restaurant.restaurant);
     const obj = new RestaurantModel(restaurant.restaurant);
     try {
       const res = await obj.save();
-      console.log("saved");
+      // console.log("saved");
       return res;
     } catch (err) {
       console.log(err);
