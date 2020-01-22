@@ -1,8 +1,5 @@
-// import { dummyRestaurants } from "../data/mockDatabase";
-import { dummyRestaurants } from "../database/mockDatabase";
 import { Restaurant } from "../interfaces";
 import { RestaurantModel } from "../models/RestaurantModel";
-import { MongooseDocument } from "mongoose";
 
 export const resolver = {
   hello: () => {
