@@ -24,7 +24,7 @@ jobs:
         run: >-
           firebase use $PROJECT_NAME &&
           firebase functions:config:set
-          MONGO_URI="${{secrets.MONGO_URI}}"
+          mongo_uri="${{secrets.MONGO_URI}}"
            &&
           firebase deploy --only functions:api
         env:

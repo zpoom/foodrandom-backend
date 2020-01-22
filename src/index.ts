@@ -13,7 +13,7 @@ class FoodRandomApp {
     app.use(express.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    const MONGO_URI: string = functions.config().MONGO_URI || "";
+    const MONGO_URI: string = functions.config().mongo_uri || "";
     console.log("start connecting to the database...");
     mongoose.Promise = global.Promise;
     mongoose
