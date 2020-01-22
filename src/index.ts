@@ -5,6 +5,7 @@ import { schema, resolver } from "./graphql";
 import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
+import * as functions from "firebase-functions";
 class FoodRandomApp {
   app: Application;
   constructor() {
@@ -12,8 +13,7 @@ class FoodRandomApp {
     app.use(express.json());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    const MONGO_URI: string =
-      "mongodb+srv://sorawit:sunthawatrodom@cluster0-b4ovo.mongodb.net/FOOD-RANDOM?retryWrites=true&w=majority";
+    const MONGO_URI: string = functions.config().MONGO_URI || "";
     console.log("start connecting to the database...");
     mongoose.Promise = global.Promise;
     mongoose
