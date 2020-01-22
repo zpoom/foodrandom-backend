@@ -24,8 +24,7 @@ jobs:
         run: >-
           firebase use $PROJECT_NAME &&
           firebase functions:config:set
-          mongo.uri="${{secrets.MONGO_URI}}"
-           &&
+          mongo.uri="${{secrets.MONGO_URI}}" &&
           firebase deploy --only functions:api
         env:
           PROJECT_NAME: food-random-265418
